@@ -14,14 +14,14 @@ meta =
     title = "Raiding Fixes",
 
     -- Description of your mod that will be displayed to players
-    description = "Fixes exploits in civilian raiding mechanics. Also adds a way to adjust raiding penalty",
+    description = "Fixes bugs in civilian raiding mechanics, adds a way to adjust raiding penalty and other settings.",
 
     -- Insert all authors into this list
     authors = {"Rinart73"},
 
     -- Version of your mod, should be in format 1.0.0 (major.minor.patch) or 1.0 (major.minor)
     -- This will be used to check for unmet dependencies or incompatibilities
-    version = "1.0.2",
+    version = "1.1",
 
     -- If your mod requires dependencies, enter them here. The game will check that all dependencies given here are met.
     -- Possible attributes:
@@ -40,7 +40,7 @@ meta =
     -- },
     dependencies = {
         {id = "1722652757", min = "1.2"},
-        {id = "Avorion", min = "0.23", max = "0.23"}
+        {id = "Avorion", exact = "0.23.3"}
     },
 
     -- Set to true if the mod only has to run on the server. Clients will get notified that the mod is running on the server, but they won't download it to themselves
