@@ -1,8 +1,6 @@
 package.path = package.path .. ";data/scripts/lib/?.lua"
 
 local raidingFixes_config
-local raidingFixes_threatenStates = {}
-local raidingFixes_insist, raidingFixes_threaten -- extended functions
 
 if onServer() then
 
@@ -20,21 +18,6 @@ if isModified then
     Azimuth.saveConfig("RaidingFixes", raidingFixes_config, configOptions)
 end
 configOptions = nil
-
-
-raidingFixes_insist = CivilShip.insist
-function CivilShip.insist(...)
-    threatenState = raidingFixes_threatenStates[callingPlayer]
-    raidingFixes_insist(...)
-    raidingFixes_threatenStates[callingPlayer] = threatenState
-end
-
-raidingFixes_threaten = CivilShip.threaten
-function CivilShip.threaten(...)
-    threatenState = raidingFixes_threatenStates[callingPlayer]
-    raidingFixes_threaten(...)
-    raidingFixes_threatenStates[callingPlayer] = threatenState
-end
 
 function CivilShip.worsenRelations(delta) -- overridden
     delta = delta or -raidingFixes_config.RaidingPenalty
