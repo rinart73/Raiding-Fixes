@@ -1,11 +1,12 @@
 package.path = package.path .. ";data/scripts/lib/?.lua"
 
-local raidingFixes_config
+local Azimuth, raidingFixes_config, raidingFixes_gameVersion
 
 if onServer() then
 
 
-local Azimuth = include("azimuthlib-basic")
+Azimuth = include("azimuthlib-basic")
+raidingFixes_gameVersion = GameVersion()
 
 local configOptions = {
   _version = { default = "1.0", comment = "Config version. Don't touch." },
@@ -43,7 +44,11 @@ function CivilShip.worsenRelations(delta) -- overridden
         if faction then
             relationsToVictim = faction:getRelations(thisFaction)
             if relationsToVictim >= raidingFixes_config.MinRelationsToVictim then
-                galaxy:changeFactionRelations(faction, shipFaction, delta)
+                if raidingFixes_gameVersion.minor >= 26 then
+                    changeRelations(faction, shipFaction, delta, RelationChangeType.Raiding, true, true)
+                else
+                    galaxy:changeFactionRelations(faction, shipFaction, delta)
+                end
             end
         end
     end
