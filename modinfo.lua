@@ -8,20 +8,20 @@ meta =
 
     -- Name of your mod; You may want this to be unique, but it's not absolutely necessary.
     -- This is an additional helper attribute for you to easily identify your mod in the Mods() list
-    name = "RaidingFixes",
+    name = "RaidingTweaks",
 
     -- Title of your mod that will be displayed to players
-    title = "Raiding Fixes",
+    title = "Raiding Tweaks",
 
     -- Description of your mod that will be displayed to players
-    description = "Fixes bugs in civilian raiding mechanics, adds a way to adjust raiding penalty and other settings.",
+    description = "Allows to adjust raiding penalty, minimum witness relations and hazard zone score increase via mod config.",
 
     -- Insert all authors into this list
     authors = {"Rinart73"},
 
     -- Version of your mod, should be in format 1.0.0 (major.minor.patch) or 1.0 (major.minor)
     -- This will be used to check for unmet dependencies or incompatibilities
-    version = "1.1.5",
+    version = "1.1.6",
 
     -- If your mod requires dependencies, enter them here. The game will check that all dependencies given here are met.
     -- Possible attributes:
@@ -40,7 +40,7 @@ meta =
     -- },
     dependencies = {
         {id = "1722652757", min = "1.2"},
-        {id = "Avorion", min = "0.25.2", max = "0.31.*"}
+        {id = "Avorion", min = "0.31", max = "1.*"}
     },
 
     -- Set to true if the mod only has to run on the server. Clients will get notified that the mod is running on the server, but they won't download it to themselves
